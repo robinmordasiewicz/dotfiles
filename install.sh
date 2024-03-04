@@ -7,7 +7,7 @@ cp .p10k.zsh ~/
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/bundle
 
-git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 wget 'https://tpo.pe/pathogen.vim' -O ~/.vim/autoload/pathogen.vim
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline

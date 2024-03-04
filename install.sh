@@ -2,6 +2,5 @@
 
 set -e
 
-touch ~/testingdotfiles.txt
-
-cp .vimrc ~/.vimrc
+cp .vimrc ~/
+cp .p10k.zsh ~/

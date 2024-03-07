@@ -3,11 +3,14 @@
 set -e
 
 cp .vimrc ~/
-mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/bundle
+#mkdir -p ~/.vim/autoload
+#mkdir -p ~/.vim/bundle
 
-wget 'https://tpo.pe/pathogen.vim' -O ~/.vim/autoload/pathogen.vim
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+#wget 'https://tpo.pe/pathogen.vim' -O ~/.vim/autoload/pathogen.vim
+
+mkdir -p ~/.vim/pack/dist/start
+git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
+
 git clone https://github.com/preservim/nerdtree ~/.vim/bundle/nerdtree
 git clone https://github.com/junegunn/fzf.vim ~/.vim/bundle/fzf.vim
 git clone https://github.com/airblade/vim-gitgutter ~/.vim/bundle/vim-gitgutter

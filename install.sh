@@ -2,26 +2,81 @@
 
 set -e
 
+WORKDIR=`pwd`
+
 cp .vimrc ~/
-#mkdir -p ~/.vim/autoload
-#mkdir -p ~/.vim/bundle
 
-#wget 'https://tpo.pe/pathogen.vim' -O ~/.vim/autoload/pathogen.vim
+if ! [ -d ~/.vim/pack/plugin/start ]; then
+  mkdir -p ~/.vim/pack/plugin/start
+fi
 
-mkdir -p ~/.vim/pack/dist/start
-git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
+if ! [ -d ~/.vim/pack/plugin/start/vim-airline ]; then
+  git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/plugin/start/vim-airline
+else
+  cd ~/.vim/pack/plugin/start/vim-airline
+  git pull
+fi
 
-git clone https://github.com/preservim/nerdtree ~/.vim/pack/dist/start/nerdtree
-git clone https://github.com/junegunn/fzf.vim ~/.vim/pack/dist/start/fzf
-git clone https://github.com/airblade/vim-gitgutter ~/.vim/pack/dist/start/vim-gitgutter
-git clone https://github.com/tpope/vim-fugitive ~/.vim/pack/dist/start/vim-fugitive
-git clone https://github.com/voldikss/vim-floaterm ~/.vim/pack/dist/start/vim-floaterm
+if ! [ -d ~/.vim/pack/plugin/start/nerdtree ]; then
+  git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/plugin/start/nerdtree
+else
+  cd ~/.vim/pack/plugin/start/nerdtree
+  git pull
+fi
 
-mkdir -p ~/.vim/colors
+if ! [ -d ~/.vim/pack/plugin/start/fzf ]; then
+  git clone https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugin/start/fzf
+else
+  cd ~/.vim/pack/plugin/start/fzf
+  git pull
+fi
+
+if ! [ -d ~/.vim/pack/plugin/start/vim-gitgutter ]; then
+  git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/plugin/start/vim-gitgutter
+else
+  cd ~/.vim/pack/plugin/start/vim-gitgutter
+  git pull
+fi
+
+if ! [ -d ~/.vim/pack/plugin/start/vim-fugitive ]; then
+  git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/plugin/start/vim-fugitive
+else
+  cd ~/.vim/pack/plugin/start/vim-fugitive
+  git pull
+fi
+
+if ! [ -d ~/.vim/pack/plugin/start/vim-floaterm ]; then
+  git clone https://github.com/voldikss/vim-floaterm.git ~/.vim/pack/plugin/start/vim-floaterm
+else
+  cd ~/.vim/pack/plugin/start/vim-floaterm
+  git pull
+fi
+
+if ! [ -d ~/.vim/colors ]; then
+  mkdir -p ~/.vim/colors
+fi
+
 wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim -O ~/.vim/colors/monokai.vim
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
+  mkdir -p ~/.oh-my-zsh/custom/themes
+fi
+
+if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+else
+  cd ~/.oh-my-zsh/custom/themes/powerlevel10k
+  git pull
+fi
+
+cd $WORKDIR
+
 cp .zshrc ~/
 cp .p10k.zsh ~/
 
 cp -a .memgpt ~/
+
+if command -v conda &> /dev/null
+then
+    conda init --all
+fi

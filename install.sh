@@ -67,7 +67,7 @@ if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
 fi
 
 if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-  git https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+  git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 else
   cd ~/.oh-my-zsh/custom/themes/powerlevel10k
   git pull

@@ -2,8 +2,6 @@
 
 set -e
 
-WORKDIR=`pwd`
-
 cp .vimrc ~/
 cp .opencommit ~/
 cp .zshrc ~/

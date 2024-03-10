@@ -5,6 +5,10 @@ set -e
 WORKDIR=`pwd`
 
 cp .vimrc ~/
+cp .opencommit ~/
+cp .zshrc ~/
+cp .p10k.zsh ~/
+cp -a .memgpt ~/
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
   mkdir -p ~/.vim/pack/plugin/start
@@ -97,13 +101,6 @@ else
   cd ~/.oh-my-zsh/custom/plugins/conda-zsh-completion
   git pull
 fi
-
-cd $WORKDIR
-
-cp .zshrc ~/
-cp .p10k.zsh ~/
-
-cp -a .memgpt ~/
 
 if command -v conda &> /dev/null
 then

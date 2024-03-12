@@ -6,7 +6,11 @@ cp .vimrc ~/
 cp .opencommit ~/
 cp .zshrc ~/
 cp .p10k.zsh ~/
-cp -a .memgpt ~/
+
+if ! [ -d ~/.memgpt ]; then
+  mkdir -p ~/.memgpt
+fi
+cp -a .memgpt/config ~/.memgpt/
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
   mkdir -p ~/.vim/pack/plugin/start

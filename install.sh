@@ -101,6 +101,13 @@ else
   git pull
 fi
 
+if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-eza ]; then
+  git clone https://github.com/z-shell/zsh-eza.git ~/.oh-my-zsh/custom/plugins/zsh-eza
+else
+  cd ~/.oh-my-zsh/custom/plugins/zsh-eza
+  git pull
+fi
+
 if command -v conda &> /dev/null
 then
     conda init --all

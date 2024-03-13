@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# This is a dotfiles installer file
 
 set -e
 

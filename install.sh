@@ -108,6 +108,13 @@ else
   git pull
 fi
 
+if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-tfenv ]; then
+  git clone https://github.com/cda0/zsh-tfenv.git ~/.oh-my-zsh/custom/plugins/zsh-tfenv
+else
+  cd ~/.oh-my-zsh/custom/plugins/zsh-tfenv
+  git pull
+fi
+
 if command -v conda &> /dev/null
 then
     conda init --all

@@ -49,10 +49,10 @@ else
   git pull
 fi
 
-if ! [ -d ~/.vim/pack/plugin/start/vim-floaterm ]; then
-  git clone https://github.com/voldikss/vim-floaterm.git ~/.vim/pack/plugin/start/vim-floaterm
+if ! [ -d ~/.vim/pack/plugin/start/vim-polyglot ]; then
+  git clone --depth 1 https://github.com/sheerun/vim-polyglot ~/.vim/pack/plugin/start/vim-polyglot
 else
-  cd ~/.vim/pack/plugin/start/vim-floaterm
+  cd ~/.vim/pack/plugin/start/vim-polyglot
   git pull
 fi
 

@@ -1,5 +1,6 @@
 syntax on
 filetype plugin indent on
+set nocompatible
 
 " colo darkblue
 " colo monokai

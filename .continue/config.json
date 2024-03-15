@@ -1,12 +1,18 @@
 {
   "models": [
     {
-      "title": "Mixtral",
-      "model": "mixtral:8x7b",
+      "title": "Dolphin-Mixtral",
+      "model": "dolphin-mixtral:8x7b",
       "completionOptions": {},
       "apiBase": "http://0.0.0.0:11434",
       "provider": "ollama"
-    }
+    },
+    {
+      "title": "Mixtral-Instruct",
+      "model": "mixtral:instruct",
+      "completionOptions": {},
+      "apiBase": "http://0.0.0.0:11434",
+      "provider": "ollama"
   ],
   "modelRoles": {
     "default": "GPT-4",

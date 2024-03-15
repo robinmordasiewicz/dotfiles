@@ -4,6 +4,8 @@ set nocompatible
 
 " colo darkblue
 " colo monokai
+set t_Co=256
+set t_ut=
 colorscheme codedark
 
 " Configuration vim Airline

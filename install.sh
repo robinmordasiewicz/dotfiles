@@ -56,6 +56,13 @@ else
   git pull
 fi
 
+if ! [ -d ~/.vim/pack/plugin/start/vim-terraform ]; then
+  git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugin/start/vim-terraform
+else
+  cd ~/.vim/pack/plugin/start/vim-terraform
+  git pull
+fi
+
 if ! [ -d ~/.vim/colors ]; then
   mkdir -p ~/.vim/colors
 fi

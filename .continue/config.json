@@ -1,8 +1,8 @@
 {
   "models": [
     {
-      "title": "CodeLlama-34b",
-      "model": "codellama:34b-instruct",
+      "title": "Mixtral",
+      "model": "mixtral:8x7b",
       "completionOptions": {},
       "apiBase": "http://0.0.0.0:11434",
       "provider": "ollama"

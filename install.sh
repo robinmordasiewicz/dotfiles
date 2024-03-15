@@ -62,6 +62,18 @@ fi
 
 wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim -O ~/.vim/colors/monokai.vim
 
+if ! [ -d ~/.vim/pack/themes/start ]; then
+  mkdir -p ~/.vim/pack/themes/start
+fi
+
+if ! [ -d ~/.vim/pack/themes/start/vim-code-dark ]; then
+  git clone https://github.com/tomasiser/vim-code-dark ~/.vim/pack/themes/start/vim-code-dark
+else
+  cd ~/.vim/pack/themes/start/vim-code-dark || return
+  git pull
+fi
+
+
 if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
   mkdir ~/.oh-my-zsh/custom/themes
 fi

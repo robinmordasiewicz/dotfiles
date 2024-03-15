@@ -2,7 +2,8 @@ syntax on
 filetype plugin indent on
 
 " colo darkblue
-colo monokai
+" colo monokai
+colorscheme codedark
 
 " Configuration vim Airline
 set laststatus=2

@@ -8,6 +8,7 @@ cp .vimrc ~/
 cp .opencommit ~/
 cp .zshrc ~/
 cp .p10k.zsh ~/
+cp .act ~/
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
   mkdir -p ~/.vim/pack/plugin/start

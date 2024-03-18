@@ -13,14 +13,6 @@ cp .opencommit ~/
 cp .act ~/
 
 
-if ! [ -d ~/.oh-my-zsh ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
-if ! [ -d ~/.zshrc ]; then
-  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-fi
-
-cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
   mkdir -p ~/.vim/pack/plugin/start
@@ -37,6 +29,7 @@ if ! [ -d ~/.vim/pack/plugin/start/nerdtree ]; then
   git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/plugin/start/nerdtree
 else
   cd ~/.vim/pack/plugin/start/nerdtree
+    "11434:11434"
   git pull
 fi
 
@@ -101,6 +94,13 @@ fi
 #  cd ~/.oh-my-zsh/custom/themes/powerlevel10k
 #  git pull
 #fi
+if ! [ -d ~/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+if ! [ -d ~/.zshrc ]; then
+  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+fi
+
 
 if ! [ -d ~/.oh-my-zsh/custom/plugins ]; then
   mkdir ~/.oh-my-zsh/custom/plugins
@@ -141,6 +141,8 @@ else
   git pull
 fi
 
+wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
+
 cd ${DOTFILEDIR}
 
 sed -i 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc
@@ -155,12 +157,11 @@ oh-my-posh font install Meslo
 if ! [ -d ~/.oh-my-posh/themes/ ]; then
   mkdir -p ~/.oh-my-posh/themes
 fi
+cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
   echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
 fi
-
-wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
 
 if command -v az &> /dev/null; then
   yes y | az config set auto-upgrade.enable=yes

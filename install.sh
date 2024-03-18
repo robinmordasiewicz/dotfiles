@@ -11,6 +11,15 @@ cp .opencommit ~/
 #cp .zshrc ~/
 #cp .p10k.zsh ~/
 cp .act ~/
+
+
+if ! [ -d ~/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+if ! [ -d ~/.zshrc ]; then
+  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+fi
+
 cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then

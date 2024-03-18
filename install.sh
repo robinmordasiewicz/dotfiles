@@ -143,11 +143,14 @@ then
     conda init --all
 fi
 
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
-oh-my-posh font install Meslo
+if ! [ -d ~/.local/bin/ ]; then
+  mkdir -p ~/.local/bin/
+fi
 if ! [ -d ~/.oh-my-posh/themes/ ]; then
   mkdir -p ~/.oh-my-posh/themes
 fi
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin -t ~/.oh-my-posh/themes
+oh-my-posh font install Meslo
 cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then

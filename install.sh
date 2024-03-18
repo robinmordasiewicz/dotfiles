@@ -157,13 +157,13 @@ if ! [ -d ~/.oh-my-posh/themes/ ]; then
 fi
 
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
-    echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
+  echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
 fi
 
 wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
 
 if command -v az &> /dev/null; then
-    yes y | az config set auto-upgrade.enable=yes
-    yes y | az config set auto-upgrade.prompt=no
+  yes y | az config set auto-upgrade.enable=yes
+  yes y | az config set auto-upgrade.prompt=no
 fi
 

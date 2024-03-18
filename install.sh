@@ -121,17 +121,17 @@ else
   git pull
 fi
 
-if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-eza ]; then
-  git clone https://github.com/z-shell/zsh-eza.git ~/.oh-my-zsh/custom/plugins/zsh-eza
-else
-  cd ~/.oh-my-zsh/custom/plugins/zsh-eza
-  git pull
-fi
-
 if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-tfenv ]; then
   git clone https://github.com/cda0/zsh-tfenv.git ~/.oh-my-zsh/custom/plugins/zsh-tfenv
 else
   cd ~/.oh-my-zsh/custom/plugins/zsh-tfenv
+  git pull
+fi
+
+if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-aliases-lsd ]; then
+  git clone https://github.com/yuhonas/zsh-aliases-lsd.git ~/.oh-my-zsh/custom/plugins/zsh-aliases-lsd
+else
+  cd ~/.oh-my-zsh/custom/plugins/zsh-aliases-lsd
   git pull
 fi
 

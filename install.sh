@@ -6,8 +6,8 @@ set -e
 
 cp .vimrc ~/
 cp .opencommit ~/
-cp .zshrc ~/
-cp .p10k.zsh ~/
+#cp .zshrc ~/
+#cp .p10k.zsh ~/
 cp .act ~/
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
@@ -79,20 +79,16 @@ else
 fi
 
 
-if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
-  mkdir ~/.oh-my-zsh/custom/themes
-fi
+#if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
+#  mkdir ~/.oh-my-zsh/custom/themes
+#fi
 
-if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
-  mkdir -p ~/.oh-my-zsh/custom/themes
-fi
-
-if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-  git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-else
-  cd ~/.oh-my-zsh/custom/themes/powerlevel10k
-  git pull
-fi
+#if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+#  git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+#else
+#  cd ~/.oh-my-zsh/custom/themes/powerlevel10k
+#  git pull
+#fi
 
 if ! [ -d ~/.oh-my-zsh/custom/plugins ]; then
   mkdir ~/.oh-my-zsh/custom/plugins
@@ -133,7 +129,20 @@ else
   git pull
 fi
 
+sed -i 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc
+
 if command -v conda &> /dev/null
 then
     conda init --all
 fi
+
+curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+oh-my-posh font install Meslo
+if ! [ -d ~/.oh-my-posh/themes/ ]; then
+  mkdir -p ~/.oh-my-posh/themes
+fi
+cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json                                              
+echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
+
+wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
+

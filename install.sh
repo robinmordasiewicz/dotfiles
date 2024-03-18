@@ -129,14 +129,21 @@ wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.o
 
 cd ${DOTFILEDIR}
 
-sed -i 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc
+tmpfile=$(mktemp)
+sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc > "$tmpfile"
+if [ $? -eq 0 ]; then
+    # Replace the original file with the modified contents
+    mv "$tmpfile" ~/.zshrc
+else
+    rm "$tmpfile"
+fi
 
 if command -v conda &> /dev/null
 then
     conda init --all
 fi
 
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 oh-my-posh font install Meslo
 if ! [ -d ~/.oh-my-posh/themes/ ]; then
   mkdir -p ~/.oh-my-posh/themes

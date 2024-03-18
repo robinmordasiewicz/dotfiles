@@ -67,8 +67,6 @@ if ! [ -d ~/.vim/colors ]; then
   mkdir -p ~/.vim/colors
 fi
 
-wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim -O ~/.vim/colors/monokai.vim
-
 if ! [ -d ~/.vim/pack/themes/start ]; then
   mkdir -p ~/.vim/pack/themes/start
 fi

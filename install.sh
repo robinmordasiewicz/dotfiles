@@ -4,11 +4,14 @@
 
 set -e
 
+DOTFILEDIR=`pwd`
+
 cp .vimrc ~/
 cp .opencommit ~/
 #cp .zshrc ~/
 #cp .p10k.zsh ~/
 cp .act ~/
+cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
   mkdir -p ~/.vim/pack/plugin/start
@@ -129,6 +132,8 @@ else
   git pull
 fi
 
+cd ${DOTFILEDIR}
+
 sed -i 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc
 
 if command -v conda &> /dev/null
@@ -141,7 +146,6 @@ oh-my-posh font install Meslo
 if ! [ -d ~/.oh-my-posh/themes/ ]; then
   mkdir -p ~/.oh-my-posh/themes
 fi
-cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
     echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
@@ -150,7 +154,7 @@ fi
 wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
 
 if command -v az &> /dev/null; then
-    az config set auto-upgrade.enable=yes
+    yes y | az config set auto-upgrade.enable=yes
+    yes y | az config set auto-upgrade.prompt=no
 fi
-
 

@@ -141,8 +141,16 @@ oh-my-posh font install Meslo
 if ! [ -d ~/.oh-my-posh/themes/ ]; then
   mkdir -p ~/.oh-my-posh/themes
 fi
-cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json                                              
-echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
+cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
+
+if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
+    echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
+fi
 
 wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
+
+if command -v az &> /dev/null; then
+    az config set auto-upgrade.enable=yes
+fi
+
 

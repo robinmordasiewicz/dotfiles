@@ -8,11 +8,7 @@ DOTFILEDIR=`pwd`
 
 cp .vimrc ~/
 cp .opencommit ~/
-#cp .zshrc ~/
-#cp .p10k.zsh ~/
 cp .act ~/
-
-
 
 if ! [ -d ~/.vim/pack/plugin/start ]; then
   mkdir -p ~/.vim/pack/plugin/start
@@ -29,7 +25,6 @@ if ! [ -d ~/.vim/pack/plugin/start/nerdtree ]; then
   git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/plugin/start/nerdtree
 else
   cd ~/.vim/pack/plugin/start/nerdtree
-    "11434:11434"
   git pull
 fi
 
@@ -83,24 +78,13 @@ else
   git pull
 fi
 
-
-#if ! [ -d ~/.oh-my-zsh/custom/themes ]; then
-#  mkdir ~/.oh-my-zsh/custom/themes
-#fi
-
-#if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-#  git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-#else
-#  cd ~/.oh-my-zsh/custom/themes/powerlevel10k
-#  git pull
-#fi
 if ! [ -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
+
 if ! [ -d ~/.zshrc ]; then
   cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 fi
-
 
 if ! [ -d ~/.oh-my-zsh/custom/plugins ]; then
   mkdir ~/.oh-my-zsh/custom/plugins

@@ -165,3 +165,10 @@ if command -v az &> /dev/null; then
   yes y | az config set auto-upgrade.prompt=no
 fi
 
+if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
+  sed -i '1i\export PATH=~/.local/bin:$PATH' ~/.zshrc
+  wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
+  tar -zxvf lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
+  mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd ~/.local/bin/
+fi
+

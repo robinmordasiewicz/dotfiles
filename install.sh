@@ -154,6 +154,7 @@ fi
 if command -v conda &> /dev/null
 then
     conda init --all
+    conda config --set changeps1 False
 fi
 
 if command -v az &> /dev/null; then

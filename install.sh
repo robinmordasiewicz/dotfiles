@@ -133,11 +133,6 @@ else
     rm "$tmpfile"
 fi
 
-if command -v conda &> /dev/null
-then
-    conda init --all
-fi
-
 if ! [ -d ~/.local/bin/ ]; then
   mkdir -p ~/.local/bin/
 fi
@@ -149,8 +144,12 @@ oh-my-posh font install Meslo
 cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
-  echo "adding powerlevel10 prompt theme"
   echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
+fi
+
+if command -v conda &> /dev/null
+then
+    conda init --all
 fi
 
 if command -v az &> /dev/null; then

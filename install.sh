@@ -63,10 +63,6 @@ else
   git pull
 fi
 
-if ! [ -d ~/.vim/colors ]; then
-  mkdir -p ~/.vim/colors
-fi
-
 if ! [ -d ~/.vim/pack/themes/start ]; then
   mkdir -p ~/.vim/pack/themes/start
 fi

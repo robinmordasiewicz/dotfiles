@@ -5,15 +5,12 @@ if ($host.Name -eq 'ConsoleHost')
 {
     Import-Module PSReadLine
 }
-#Import-Module PSColors
-#Import-Module posh-git
+
+Import-Module posh-git
 Import-Module -Name Terminal-Icons
-#Import-Module oh-my-posh
 Import-Module z
-set-alias desktop "Desktop.ps1"
 
 oh-my-posh init pwsh --config "~/.oh-my-posh/themes/powerlevel10k.omp.json" | Invoke-Expression
-
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)

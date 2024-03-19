@@ -78,6 +78,10 @@ if ! [ -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
+if ! [ -f ~/.z ]; then
+  wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/.z
+fi
+
 if ! [ -f ~/.zshrc ]; then
   cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 fi

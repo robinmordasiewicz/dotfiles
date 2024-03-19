@@ -150,6 +150,9 @@ cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
   echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
 fi
+if ! grep -q '^eval "$(oh-my-posh init' ~/.bashrc; then
+  echo 'eval "$(oh-my-posh init bash --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.bashrc
+fi
 
 if command -v conda &> /dev/null
 then

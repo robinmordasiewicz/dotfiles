@@ -128,7 +128,6 @@ cd ${DOTFILEDIR}
 tmpfile=$(mktemp)
 sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc > "$tmpfile"
 if [ $? -eq 0 ]; then
-    # Replace the original file with the modified contents
     mv "$tmpfile" ~/.zshrc
 else
     rm "$tmpfile"
@@ -150,6 +149,7 @@ oh-my-posh font install Meslo
 cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
+  echo "adding powerlevel10 prompt theme"
   echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
 fi
 

@@ -171,5 +171,10 @@ if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   tar -zxvf lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
   mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd ~/.local/bin/
   rm -rf lsd-v1.0.0-x86_64-unknown-linux-gn*
+  if ! [ -d ~/.config/PowerShell/ ]; then
+    mkdir -p ~/.config/PowerShell
+  fi
+  ./powershell.ps1
+  cp Microsoft.PowerShell_profile.ps1 ~/.config/PowerShell/Microsoft.PowerShell_profile.ps1
 fi
 

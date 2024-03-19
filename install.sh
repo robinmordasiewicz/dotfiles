@@ -126,7 +126,7 @@ wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.o
 cd ${DOTFILEDIR}
 
 tmpfile=$(mktemp)
-sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv)/' ~/.zshrc > "$tmpfile"
+sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv z)/' ~/.zshrc > "$tmpfile"
 if [ $? -eq 0 ]; then
     mv "$tmpfile" ~/.zshrc
 else

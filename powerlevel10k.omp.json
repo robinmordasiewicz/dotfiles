@@ -24,7 +24,7 @@
           "type": "path"
         },
         {
-          "background": "#4e9a06",
+          "background": "#17B305",
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#c4a000{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f26d50{{ end }}",
@@ -139,15 +139,6 @@
           "style": "powerline",
           "template": " {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }}  ",
           "type": "aws"
-        },
-        {
-          "background": "#ff0000",
-          "foreground": "#111111",
-          "invert_powerline": true,
-          "powerline_symbol": "",
-          "style": "powerline",
-          "template": "  ",
-          "type": "root"
         },
         {
           "background": "#0D71CE",

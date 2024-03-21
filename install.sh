@@ -180,19 +180,18 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 fi
 
+if command -v pwsh &> /dev/null; then
+  pwsh powershell.ps1
+fi
 if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   if ! [ -d ~/.config/PowerShell/ ]; then
     mkdir -p ~/.config/PowerShell
   fi
-  pwsh powershell.ps1
   cp Microsoft.PowerShell_profile.ps1 ~/.config/PowerShell/Microsoft.PowerShell_profile.ps1
 else
   if command -v az &> /dev/null; then
     yes y | az config set auto-upgrade.enable=yes
     yes y | az config set auto-upgrade.prompt=no
-  fi
-  if command -v pwsh &> /dev/null; then
-    pwsh powershell.ps1
   fi
   if ! [ -d ~/.config/powershell/ ]; then
     mkdir -p ~/.config/powershell

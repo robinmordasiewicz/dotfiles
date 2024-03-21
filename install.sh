@@ -189,3 +189,10 @@ if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   cp Microsoft.PowerShell_profile.ps1 ~/.config/PowerShell/Microsoft.PowerShell_profile.ps1
 fi
 
+if [[ "$(uname)" == "Darwin" ]]; then
+  ./powershell-mac.ps1
+  if [ ! -d ~/.config/powershell ];then
+    mkdir -p ~/.config/powershell
+  fi
+  cp Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+fi

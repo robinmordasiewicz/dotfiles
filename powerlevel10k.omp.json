@@ -14,15 +14,15 @@
         },
         {
           "type": "az",
-          "style": "powerline",
+          "style": "diamond",
           "foreground": "#000000",
           "background": "#9ec3f0",
-          "template": "  {{ .Name }}"
+          "template": "  {{ .Name }}",
+          "trailing_diamond": "<#9ec3f0,#0B61CA>"
         },
         {
           "background": "#0B61CA",
           "foreground": "#e4e4e4",
-          "powerline_symbol": "",
           "properties": {
             "home_icon": "~",
             "style": "full"

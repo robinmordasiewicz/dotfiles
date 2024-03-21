@@ -171,11 +171,6 @@ then
     conda config --set changeps1 False
 fi
 
-if command -v az &> /dev/null; then
-  yes y | az config set auto-upgrade.enable=yes
-  yes y | az config set auto-upgrade.prompt=no
-fi
-
 if [[ "$(uname)" == "Linux" ]]; then
   if ! command -v lsd &> /dev/null; then
     wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
@@ -185,13 +180,17 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 fi
 
-
 if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   if ! [ -d ~/.config/PowerShell/ ]; then
     mkdir -p ~/.config/PowerShell
   fi
+  pwsh powershell.ps1
   cp Microsoft.PowerShell_profile.ps1 ~/.config/PowerShell/Microsoft.PowerShell_profile.ps1
 else
+  if command -v az &> /dev/null; then
+    yes y | az config set auto-upgrade.enable=yes
+    yes y | az config set auto-upgrade.prompt=no
+  fi
   if command -v pwsh &> /dev/null; then
     pwsh powershell.ps1
   fi

@@ -185,6 +185,10 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 fi
 
+if command -v pwsh &> /dev/null; then
+  pwsh powershell.ps1
+fi
+
 if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   if ! [ -d ~/.config/PowerShell/ ]; then
     mkdir -p ~/.config/PowerShell
@@ -194,11 +198,6 @@ if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
 else
   if ! [ -d ~/.config/powershell/ ]; then
     mkdir -p ~/.config/powershell
-  fi
-  if [[ "$(uname)" == "Darwin" ]]; then
-    ./powershell-mac.ps1
-  else
-    ./powershell.ps1
   fi
   cp Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 fi

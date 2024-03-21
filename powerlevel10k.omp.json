@@ -14,11 +14,18 @@
         },
         {
           "type": "az",
-          "style": "diamond",
+          "style": "powerline",
           "foreground": "#000000",
           "background": "#9ec3f0",
-          "template": "  {{ .Name }}",
-          "trailing_diamond": "<#9ec3f0,#0B61CA>"
+          "template": "  {{ .Name }}"
+        },
+        {
+          "type": "session",
+          "style": "diamond",
+          "trailing_diamond": "<#9ec3f0,#0B61CA>",
+          "foreground": "#000000",
+          "background": "#9ec3f0",
+          "template": "{{ if .SSHSession }}  {{ end }}{{ .HostName }}"
         },
         {
           "background": "#0B61CA",
@@ -171,14 +178,6 @@
           "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Venv }}{{ end }}  ",
           "type": "python"
         },
-{
-  "type": "docker",
-  "style": "powerline",
-  "powerline_symbol": "",
-  "foreground": "#000000",
-  "background": "#0B59E7",
-  "template": "  {{ .Context }} "
-},
         {
           "background": "transparent",
           "foreground": "#d3d7cf",

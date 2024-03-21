@@ -199,4 +199,4 @@ else
   cp Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 fi
 
-sed -i '1i\export PATH=~/.local/bin:$PATH' ~/.zshrc
+sed '1i\export PATH=~/.local/bin:$PATH' ~/.zshrc > ~/.zshrc.tmp && mv ~/.zshrc.tmp ~/.zshrc

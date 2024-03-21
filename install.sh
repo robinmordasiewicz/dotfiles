@@ -180,9 +180,6 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 fi
 
-if command -v pwsh &> /dev/null; then
-  pwsh powershell.ps1
-fi
 if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   if ! [ -d ~/.config/PowerShell/ ]; then
     mkdir -p ~/.config/PowerShell
@@ -197,6 +194,9 @@ else
     mkdir -p ~/.config/powershell
   fi
   cp Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+fi
+if command -v pwsh &> /dev/null; then
+  pwsh powershell.ps1
 fi
 
 #sed -i '' "1s|^|export PATH=\$HOME/.local/bin:\$PATH\n|" ~/.zshrc

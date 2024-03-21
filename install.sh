@@ -176,23 +176,31 @@ if command -v az &> /dev/null; then
   yes y | az config set auto-upgrade.prompt=no
 fi
 
+if [[ "$(uname)" == "Linux" ]]; then
+  if ! command -v lsd &> /dev/null; then
+    wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
+    tar -zxvf lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
+    mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd ~/.local/bin/
+    rm -rf lsd-v1.0.0-x86_64-unknown-linux-gn*
+  fi
+fi
+
 if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
-  sed -i '1i\export PATH=~/.local/bin:$PATH' ~/.zshrc
-  wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
-  tar -zxvf lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
-  mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd ~/.local/bin/
-  rm -rf lsd-v1.0.0-x86_64-unknown-linux-gn*
   if ! [ -d ~/.config/PowerShell/ ]; then
     mkdir -p ~/.config/PowerShell
   fi
   ./powershell.ps1
   cp Microsoft.PowerShell_profile.ps1 ~/.config/PowerShell/Microsoft.PowerShell_profile.ps1
-fi
-
-if [[ "$(uname)" == "Darwin" ]]; then
-  ./powershell-mac.ps1
-  if [ ! -d ~/.config/powershell ];then
+else
+  if ! [ -d ~/.config/powershell/ ]; then
     mkdir -p ~/.config/powershell
+  fi
+  if [[ "$(uname)" == "Darwin" ]]; then
+    ./powershell-mac.ps1
+  else
+    ./powershell.ps1
   fi
   cp Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 fi
+
+sed -i '1i\export PATH=~/.local/bin:$PATH' ~/.zshrc

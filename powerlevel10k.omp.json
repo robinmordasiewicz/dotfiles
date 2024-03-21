@@ -15,12 +15,13 @@
         {
           "background": "#0D71CE",
           "foreground": "#e4e4e4",
+          "leading_diamond": "<#0D71CE,transparent>",
           "properties": {
             "home_icon": "~",
             "style": "full"
           },
-          "style": "powerline",
-          "template": "  {{ .Path }} ",
+          "style": "diamond",
+          "template": " {{ .Path }} ",
           "type": "path"
         },
         {

@@ -12,9 +12,17 @@
           "template": "╭─",
           "type": "text"
         },
+{
+  "type": "az",
+  "style": "powerline",
+  "foreground": "#000000",
+  "background": "#9ec3f0",
+  "template": "  {{ .Name }}"
+},
         {
           "background": "#0B61CA",
           "foreground": "#e4e4e4",
+  "powerline_symbol": "",
           "properties": {
             "home_icon": "~",
             "style": "full"
@@ -125,14 +133,6 @@
           "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "type": "azfunc"
         },
-{
-  "type": "az",
-  "style": "powerline",
-  "powerline_symbol": "",
-  "foreground": "#000000",
-  "background": "#9ec3f0",
-  "template": "  {{ .Name .EnvironmentName }}"
-},
         {
           "background_templates": [
             "{{if contains \"default\" .Profile}}#FFA400{{end}}",

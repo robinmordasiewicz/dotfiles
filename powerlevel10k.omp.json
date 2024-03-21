@@ -171,6 +171,14 @@
           "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Venv }}{{ end }}  ",
           "type": "python"
         },
+{
+  "type": "docker",
+  "style": "powerline",
+  "powerline_symbol": "",
+  "foreground": "#000000",
+  "background": "#0B59E7",
+  "template": "  {{ .Context }} "
+},
         {
           "background": "transparent",
           "foreground": "#d3d7cf",

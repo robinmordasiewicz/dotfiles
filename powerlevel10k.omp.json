@@ -175,7 +175,7 @@
           "foreground": "#d3d7cf",
           "background": "#0D71CE",
           "trailing_diamond": "<#0D71CE,transparent><#d3d7cf,transparent>",
-          "template": "{{ if .SSHSession }}<#FFD209,background> ⚡{{ end }}<foreground,background> {{ .HostName }} <foreground,background>"
+          "template": "<foreground,background> {{ if .SSHSession }}<#FFD209,background>⚡{{ end }}<foreground,background>{{ .HostName }} <foreground,background>"
         },
         {
           "background": "transparent",

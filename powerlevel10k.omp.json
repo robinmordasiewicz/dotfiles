@@ -17,11 +17,11 @@
           "foreground": "#e4e4e4",
           "leading_diamond": "<#0D71CE,transparent>",
           "properties": {
-            "home_icon": "~",
+            "home_icon": "🏠",
             "style": "full"
           },
           "style": "diamond",
-          "template": " {{ .Path }} ",
+          "template": " {{ .Path }} ",
           "type": "path"
         },
         {
@@ -32,8 +32,8 @@
             "{{ if gt .Ahead 0 }}#89d1dc{{ end }}",
             "{{ if gt .Behind 0 }}#4e9a06{{ end }}"
           ],
-          "foreground": "#000000",
-          "powerline_symbol": "",
+          "foreground": "#d3d7cf",
+          "powerline_symbol": "<#d3d7cf,transparent>",
           "properties": {
             "fetch_stash_count": true,
             "fetch_status": true
@@ -140,18 +140,18 @@
           "type": "aws"
         },
         {
-          "background": "#0D71CE",
-          "foreground": "#111111",
+          "background": "#622188",
+          "foreground": "#d3d7cf",
           "invert_powerline": true,
           "powerline_symbol": "",
-          "trailing_diamond": "<#0D71CE,#0D71CE>",
+          "trailing_diamond": "<#0D71CE,#0D71CE><transparent,transparent>",
           "properties": {
             "display_mode": "environment",
             "fetch_virtual_env": true,
             "home_enabled": true
           },
           "style": "powerline",
-          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Venv }}{{ end }}  ",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Venv }}{{ end }} <#FFDC4B,#622188> ",
           "type": "python"
         },
         {
@@ -159,21 +159,22 @@
           "style": "powerline",
           "foreground": "#d3d7cf",
           "background": "#0D71CE",
-          "template": "  {{ .Name }}"
+          "powerline_symbol": "<background,parentBackground><foreground,background>",
+          "template": "<foreground,background>  {{ .Name }}<foreground,background>"
         },
         {
           "type": "session",
           "style": "diamond",
           "foreground": "#d3d7cf",
           "background": "#0D71CE",
-          "trailing_diamond": "<#0D71CE,transparent>",
-          "template": "{{ if .SSHSession }} {{ end }} {{ .HostName }}"
+          "trailing_diamond": "<#0D71CE,transparent><#d3d7cf,transparent>",
+          "template": "<foreground,background>{{ if .SSHSession }}⚡{{ end }}{{ .HostName }}<foreground,background>"
         },
         {
           "background": "transparent",
           "foreground": "#d3d7cf",
           "style": "powerline",
-          "template": "─╮",
+          "template": "<#d3d7cf,transparent>─╮<#d3d7cf,transparent>",
           "type": "text"
         }
       ]
@@ -187,7 +188,7 @@
           "background": "transparent",
           "foreground": "#d3d7cf",
           "style": "powerline",
-          "template": "╰─",
+          "template": "<#d3d7cf,transparent>╰─<#d3d7cf,transparent>",
           "type": "text"
         }
       ]
@@ -199,7 +200,7 @@
           "foreground": "#d3d7cf",
           "background": "transparent",
           "style": "powerline",
-          "template": "─╯",
+          "template": "<#d3d7cf,transparent>─╯<#d3d7cf,transparent>",
           "type": "text"
         }
       ]

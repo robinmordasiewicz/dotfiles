@@ -26,7 +26,7 @@
         },
         {
           "background": "#17B305",
-          "foreground": "#d3d7cf",
+          "foreground": "#000000",
           "leading_diamond": "<parentBackground,background> ",
           "trailing_diamond": "<background,transparent>",
           "foreground_templates": [

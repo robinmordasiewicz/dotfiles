@@ -14,21 +14,20 @@
         },
         {
           "background": "#0D71CE",
-          "foreground": "#d3d7cf",
+          "foreground": "transparent",
           "leading_diamond": "<#0D71CE,transparent>",
           "properties": {
             "home_icon": " 🏠 ",
             "style": "full"
           },
           "style": "diamond",
-          "template": "{{ .Path }} ",
+          "template": "<#FFFFFF,background>{{ .Path }} ",
           "type": "path"
         },
         {
           "background": "#17B305",
           "foreground": "#000000",
-          "leading_diamond": "<parentBackground,background> ",
-          "trailing_diamond": "<background,transparent><#d3d7cf,transparent>",
+          "leading_diamond": "<parentBackground,background>",
           "foreground_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#000000{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f26d50{{ end }}",
@@ -46,8 +45,14 @@
             "fetch_status": true
           },
           "style": "diamond",
-          "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
           "type": "git"
+        },
+        {
+          "leading_diamond": "<parentBackground,parentForeground> ",
+          "style": "diamond",
+          "template": "<#d3d7cf,transparent>─",
+          "type": "text"
         }
       ]
     },

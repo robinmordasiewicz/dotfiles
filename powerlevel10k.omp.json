@@ -17,11 +17,11 @@
           "foreground": "#d3d7cf",
           "leading_diamond": "<#0D71CE,transparent>",
           "properties": {
-            "home_icon": "🏠",
+            "home_icon": " 🏠 ",
             "style": "full"
           },
           "style": "diamond",
-          "template": " {{ .Path }}",
+          "template": "{{ .Path }} ",
           "type": "path"
         },
         {
@@ -66,7 +66,7 @@
             "always_enabled": true
           },
           "style": "powerline",
-          "template": "<#FFFFFF,transparent>{{ if gt .Code 0 }}{{ reason .Code }}{{ else }}✅{{ end }}<#FFFFFF,transparent>",
+          "template": "<#FFFFFF,background>{{ if gt .Code 0 }}{{ reason .Code }}{{ else }}✅{{ end }}",
           "type": "status"
         },
         {
@@ -175,7 +175,7 @@
           "foreground": "#d3d7cf",
           "background": "#0D71CE",
           "trailing_diamond": "<#0D71CE,transparent><#d3d7cf,transparent>",
-          "template": "{{ if .SSHSession }}<#FFD209,background>⚡{{ end }}<foreground,background>{{ .HostName }}<foreground,background>"
+          "template": "{{ if .SSHSession }}<#FFD209,background> ⚡{{ end }}<foreground,background>{{ .HostName }}<foreground,background>"
         },
         {
           "background": "transparent",

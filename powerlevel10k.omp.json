@@ -79,11 +79,11 @@
           "background": "#689f63",
           "foreground": "#ffffff",
           "invert_powerline": true,
-          "powerline_symbol": "",
+          "leading_diamond": "<background,parentBackground>",
           "properties": {
             "fetch_version": true
           },
-          "style": "powerline",
+          "style": "diamond",
           "template": " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}  ",
           "type": "node"
         },

@@ -50,7 +50,7 @@
           "type": "git"
         },
         {
-          "leading_diamond": "<parentBackground,parentForeground> ",
+          "leading_diamond": "<parentBackground,transparent>",
           "style": "diamond",
           "template": "<#d3d7cf,transparent>─",
           "type": "text"
@@ -144,7 +144,7 @@
           ],
           "foreground": "#ffffff",
           "invert_powerline": true,
-          "powerline_symbol": "",
+          "powerline_symbol": "<background,parentBackground>",
           "properties": {
             "display_default": false
           },

@@ -196,7 +196,8 @@ else
   cp Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 fi
 if command -v pwsh &> /dev/null; then
-  pwsh powershell.ps1
+  pwsh -NoProfile -NonInteractive -Command "Install-Module -Name Terminal-Icons -Repository PSGallery -AllowClobber -Force" || continue
+  pwsh -NoProfile -NonInteractive -Command "Install-Module -Name z -Repository PSGallery -AllowClobber -Force" || continue
 fi
 
 #sed -i '' "1s|^|export PATH=\$HOME/.local/bin:\$PATH\n|" ~/.zshrc

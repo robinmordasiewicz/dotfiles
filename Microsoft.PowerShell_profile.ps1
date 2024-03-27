@@ -6,8 +6,8 @@ if ($host.Name -eq 'ConsoleHost')
     Import-Module PSReadLine
 }
 
-# Import-Module -Name Terminal-Icons
-# Import-Module -Name z
+Import-Module -Name Terminal-Icons
+Import-Module -Name z
 
 oh-my-posh init pwsh --config "~/.oh-my-posh/themes/powerlevel10k.omp.json" | Invoke-Expression
 

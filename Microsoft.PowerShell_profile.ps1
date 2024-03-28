@@ -8,8 +8,9 @@ if ($host.Name -eq 'ConsoleHost')
 
 Import-Module -Name Terminal-Icons
 Import-Module -Name z
+Import-Module -Name Az
 
-oh-my-posh init pwsh --config "~/.oh-my-posh/themes/powerlevel10k.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k.omp.json" | Invoke-Expression
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)

@@ -1,50 +1,29 @@
 {
   "models": [
     {
-      "title": "Dolphin-Mixtral",
-      "model": "dolphin-mixtral:8x7b",
+      "model": "mixtral:8x7b",
+      "title": "Mixtral",
       "completionOptions": {},
-      "apiBase": "http://192.168.2.29:11434",
-      "provider": "ollama"
-    },
-    {
-      "title": "mixtral-instruct",
-      "model": "mixtral:instruct",
-      "completionOptions": {},
-      "apiBase": "http://192.168.2.29:11434",
+      "apiBase": "https://www.bankexample.com",
       "provider": "ollama"
     }
   ],
-  "modelRoles": {
-    "default": "GPT-4",
-    "summarize": "GPT-3.5-Turbo"
-  },
-  "tabAutocompleteModel": {
-    "title": "Tab Autocomplete Model",
-    "provider": "ollama",
-    "model": "starcoder:3b",
-    "apiBase": "http://192.168.2.29:11434"
-  },
   "slashCommands": [
     {
       "name": "edit",
-      "description": "Edit highlighted code",
-      "step": "EditHighlightedCodeStep"
+      "description": "Edit selected code"
     },
     {
       "name": "comment",
-      "description": "Write comments for the highlighted code",
-      "step": "CommentCodeStep"
+      "description": "Write comments for the selected code"
     },
     {
       "name": "share",
-      "description": "Download and share this session",
-      "step": "ShareSessionStep"
+      "description": "Export this session as markdown"
     },
     {
       "name": "cmd",
-      "description": "Generate a shell command",
-      "step": "GenerateShellCommandStep"
+      "description": "Generate a shell command"
     }
   ],
   "customCommands": [
@@ -68,6 +47,14 @@
       "params": {}
     },
     {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    },
+    {
       "name": "code",
       "params": {}
     },
@@ -76,5 +63,15 @@
       "params": {}
     }
   ],
+  "tabAutocompleteModel": {
+    "title": "Deepseek",
+    "provider": "ollama",
+    "model": "deepseek-coder:6.7b-base",
+    "apiBase": "https://www.bankexample.com"
+  },
+  "tabAutocompleteOptions": {
+    "useCopyBuffer": true,
+    "maxPromptTokens": 2048
+  },
   "allowAnonymousTelemetry": true
 }

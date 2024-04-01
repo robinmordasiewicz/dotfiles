@@ -11,6 +11,12 @@ cp .opencommit ~/
 cp .act ~/
 cp .tmux.conf ~/
 
+
+if ! [ -d ~/.continue ]; then
+  mkdir -p ~/.continue
+fi
+cp .continue/config.json ~/.continue
+
 if ! [ -d ~/.tmux/plugins ]; then
   mkdir -p ~/.tmux/plugins
 fi

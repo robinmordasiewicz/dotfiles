@@ -96,7 +96,7 @@ if ! [ -d ~/.oh-my-zsh ]; then
 fi
 
 if ! [ -f ~/.z ]; then
-  wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/.z
+  curl -L https://raw.githubusercontent.com/rupa/z/master/z.sh -o ~/.z
 fi
 
 if ! [ -f ~/.zshrc ]; then
@@ -142,12 +142,12 @@ else
   git pull
 fi
 
-wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ~/.oh-my-zsh/custom/az.zsh
+curl -L https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -o ~/.oh-my-zsh/custom/az.zsh
 
 cd ${DOTFILEDIR}
 
 tmpfile=$(mktemp)
-sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv z pip)/' ~/.zshrc > "$tmpfile"
+sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv z pip docker)/' ~/.zshrc > "$tmpfile"
 if [ $? -eq 0 ]; then
     mv "$tmpfile" ~/.zshrc
 else
@@ -179,8 +179,8 @@ fi
 
 if [[ "$(uname)" == "Linux" ]]; then
   if ! command -v lsd &> /dev/null; then
-    wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
-    tar -zxvf lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
+    curl -L https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz -o lsd.tar.gz
+    tar -zxvf lsd.tar.gz
     mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd ~/.local/bin/
     rm -rf lsd-v1.0.0-x86_64-unknown-linux-gn*
   fi

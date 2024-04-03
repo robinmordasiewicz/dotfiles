@@ -163,15 +163,10 @@ oh-my-posh font install Meslo
 cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
 # shellcheck disable=SC2016
-if ! grep -q 'eval "$(oh-my-posh init' ~/.zshrc; then
-  # shellcheck disable=SC2016
-  echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >>~/.zshrc
-fi
+grep -qxF 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' ~/.zshrc || echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >>~/.zshrc
+
 # shellcheck disable=SC2016
-if ! grep -q 'eval "$(oh-my-posh init' ~/.bashrc; then
-  # shellcheck disable=SC2016
-  echo 'eval "$(oh-my-posh init bash --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >>~/.bashrc
-fi
+grep -qxF 'eval "$(oh-my-posh init bash --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' ~/.zshrc || echo 'eval "$(oh-my-posh init bash --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >>~/.bashrc
 
 if command -v conda &>/dev/null; then
   conda init --all
@@ -187,7 +182,7 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 fi
 
-if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
+if [ -n "${AZUREPS_HOST_ENVIRONMENT}" ]; then
   if ! [ -d ~/.config/PowerShell/ ]; then
     mkdir -p ~/.config/PowerShell
   fi

@@ -4,13 +4,12 @@
 
 set -e
 
-DOTFILEDIR=`pwd`
+DOTFILEDIR="$(pwd)"
 
 cp .vimrc ~/
 cp .opencommit ~/
 cp .act ~/
 cp .tmux.conf ~/
-
 
 if ! [ -d ~/.continue ]; then
   mkdir -p ~/.continue
@@ -144,14 +143,13 @@ fi
 
 curl -L https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -o ~/.oh-my-zsh/custom/az.zsh
 
-cd ${DOTFILEDIR}
+cd "${DOTFILEDIR}"
 
 tmpfile=$(mktemp)
-sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv z pip docker)/' ~/.zshrc > "$tmpfile"
-if [ $? -eq 0 ]; then
-    mv "$tmpfile" ~/.zshrc
-else
-    rm "$tmpfile"
+sed 's/^plugins=.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions ubuntu jsontools gh common-aliases conda-zsh-completion zsh-aliases-lsd zsh-tfenv z pip docker)/' ~/.zshrc >"${tmpfile}" && mv "${tmpfile}" ~/.zshrc
+
+if [ -f "${tmpfile}" ]; then
+  rm "${tmpfile}"
 fi
 
 if ! [ -d ~/.local/bin/ ]; then
@@ -164,21 +162,24 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin -t ~/.oh-my
 oh-my-posh font install Meslo
 cp powerlevel10k.omp.json ~/.oh-my-posh/themes/powerlevel10k.omp.json
 
-if ! grep -q '^eval "$(oh-my-posh init' ~/.zshrc; then
-  echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.zshrc
+# shellcheck disable=SC2016
+if ! grep -q 'eval "$(oh-my-posh init' ~/.zshrc; then
+  # shellcheck disable=SC2016
+  echo 'eval "$(oh-my-posh init zsh --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >>~/.zshrc
 fi
-if ! grep -q '^eval "$(oh-my-posh init' ~/.bashrc; then
-  echo 'eval "$(oh-my-posh init bash --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >> ~/.bashrc
+# shellcheck disable=SC2016
+if ! grep -q 'eval "$(oh-my-posh init' ~/.bashrc; then
+  # shellcheck disable=SC2016
+  echo 'eval "$(oh-my-posh init bash --config ~/.oh-my-posh/themes/powerlevel10k.omp.json)"' >>~/.bashrc
 fi
 
-if command -v conda &> /dev/null
-then
-    conda init --all
-    conda config --set changeps1 False
+if command -v conda &>/dev/null; then
+  conda init --all
+  conda config --set changeps1 False
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
-  if ! command -v lsd &> /dev/null; then
+  if ! command -v lsd &>/dev/null; then
     curl -L https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz -o lsd.tar.gz
     tar -zxvf lsd.tar.gz
     mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd ~/.local/bin/
@@ -192,7 +193,7 @@ if [ -n "$AZUREPS_HOST_ENVIRONMENT" ]; then
   fi
   cp Microsoft.PowerShell_profile.ps1 ~/.config/PowerShell/Microsoft.PowerShell_profile.ps1
 else
-  if command -v az &> /dev/null; then
+  if command -v az &>/dev/null; then
     yes y | az config set auto-upgrade.enable=yes
     yes y | az config set auto-upgrade.prompt=no
   fi

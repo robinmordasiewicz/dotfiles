@@ -1,38 +1,5 @@
 {
-  "models": [
-    {
-      "model": "mixtral:8x7b",
-      "title": "Mixtral",
-      "completionOptions": {},
-      "apiBase": "https://www.bankexample.com",
-      "provider": "ollama"
-    }
-  ],
-  "slashCommands": [
-    {
-      "name": "edit",
-      "description": "Edit selected code"
-    },
-    {
-      "name": "comment",
-      "description": "Write comments for the selected code"
-    },
-    {
-      "name": "share",
-      "description": "Export this session as markdown"
-    },
-    {
-      "name": "cmd",
-      "description": "Generate a shell command"
-    }
-  ],
-  "customCommands": [
-    {
-      "name": "test",
-      "prompt": "Write a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file.",
-      "description": "Write unit tests for highlighted code"
-    }
-  ],
+  "allowAnonymousTelemetry": true,
   "contextProviders": [
     {
       "name": "diff",
@@ -63,15 +30,48 @@
       "params": {}
     }
   ],
+  "customCommands": [
+    {
+      "description": "Write unit tests for highlighted code",
+      "name": "test",
+      "prompt": "Write a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file."
+    }
+  ],
+  "models": [
+    {
+      "apiBase": "https://www.bankexample.com",
+      "completionOptions": {},
+      "model": "mixtral:8x7b",
+      "provider": "ollama",
+      "title": "Mixtral"
+    }
+  ],
+  "slashCommands": [
+    {
+      "description": "Edit selected code",
+      "name": "edit"
+    },
+    {
+      "description": "Write comments for the selected code",
+      "name": "comment"
+    },
+    {
+      "description": "Export this session as markdown",
+      "name": "share"
+    },
+    {
+      "description": "Generate a shell command",
+      "name": "cmd"
+    }
+  ],
   "tabAutocompleteModel": {
-    "title": "Deepseek",
-    "provider": "ollama",
+    "apiBase": "https://www.bankexample.com",
     "model": "deepseek-coder:6.7b-base",
-    "apiBase": "https://www.bankexample.com"
+    "provider": "ollama",
+    "title": "Deepseek"
   },
   "tabAutocompleteOptions": {
-    "useCopyBuffer": true,
-    "maxPromptTokens": 2048
-  },
-  "allowAnonymousTelemetry": true
+    "maxPromptTokens": 2048,
+    "useCopyBuffer": true
+  }
 }

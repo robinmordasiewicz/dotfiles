@@ -39,11 +39,11 @@
   ],
   "models": [
     {
-      "apiBase": "https://www.bankexample.com",
+      "apiBase": "http://www.bankexample.com:11434",
       "completionOptions": {},
-      "model": "mixtral:8x7b",
+      "model": "llama3:8b",
       "provider": "ollama",
-      "title": "Mixtral"
+      "title": "llama3"
     }
   ],
   "slashCommands": [
@@ -65,10 +65,14 @@
     }
   ],
   "tabAutocompleteModel": {
-    "apiBase": "https://www.bankexample.com",
-    "model": "deepseek-coder:6.7b-base",
+    "title": "Codestral",
     "provider": "ollama",
-    "title": "Deepseek"
+    "model": "codestral"
+  },
+  {
+  "embeddingsProvider": {
+    "provider": "ollama",
+    "model": "nomic-embed-text"
   },
   "tabAutocompleteOptions": {
     "maxPromptTokens": 2048,

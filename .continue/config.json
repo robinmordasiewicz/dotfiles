@@ -69,7 +69,6 @@
     "provider": "ollama",
     "model": "codestral"
   },
-  {
   "embeddingsProvider": {
     "provider": "ollama",
     "model": "nomic-embed-text"

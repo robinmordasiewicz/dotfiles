@@ -41,9 +41,9 @@
     {
       "apiBase": "http://www.bankexample.com:11434",
       "completionOptions": {},
-      "model": "llama3:8b",
+      "model": "codestral",
       "provider": "ollama",
-      "title": "llama3"
+      "title": "default"
     }
   ],
   "slashCommands": [

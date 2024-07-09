@@ -166,6 +166,14 @@
           "type": "python"
         },
         {
+          "type": "kubectl",
+          "leading_diamond": "<background,parentBackground>\ue0b2",
+          "style": "diamond",
+          "background": "#0D71CE",
+          "foreground": "#d3d7cf",
+          "template": "<foreground,background> ﴱ {{if .Namespace}} {{.Namespace}}{{end}} <foreground,background>"
+        },
+        {
           "background": "#0D71CE",
           "foreground": "#d3d7cf",
           "leading_diamond": "<background,parentBackground>\ue0b2",

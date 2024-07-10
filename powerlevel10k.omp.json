@@ -171,7 +171,7 @@
           "style": "diamond",
           "background": "#0D71CE",
           "foreground": "#d3d7cf",
-          "template": "<foreground,background> ﴱ {{if .Namespace}} {{.Namespace}}{{end}} <foreground,background>"
+          "template": "<foreground,background>{{if .Namespace}}ﴱ {{.Namespace}}{{end}} <foreground,background>"
         },
         {
           "background": "#0D71CE",

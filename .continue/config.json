@@ -78,6 +78,7 @@
   },
   "tabAutocompleteOptions": {
     "maxPromptTokens": 2048,
-    "useCopyBuffer": true
+    "useCopyBuffer": true,
+    "multilineCompletions": "always"
   }
 }

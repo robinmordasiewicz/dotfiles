@@ -39,13 +39,13 @@
   ],
   "models": [
     {
-      "apiBase": "http://www.bankexample.com:11434",
+      "apiBase": "http://www.bankexample.com",
       "model": "codestral",
       "provider": "ollama",
       "title": "codestral"
     },
     {
-      "apiBase": "http://www.bankexample.com:11434",
+      "apiBase": "http://www.bankexample.com",
       "model": "llama3:70b",
       "provider": "ollama",
       "title": "llama3"
@@ -73,13 +73,13 @@
     "title": "Tab Autocomplete Model",
     "provider": "ollama",
     "model": "codestral",
-    "apiBase": "http://www.bankexample.com:11434"
+    "apiBase": "http://www.bankexample.com"
   },
   "embeddingsProvider": {
     "title": "Embeddings Provider",
     "provider": "ollama",
     "model": "nomic-embed-text",
-    "apiBase": "http://www.bankexample.com:11434"
+    "apiBase": "http://www.bankexample.com"
   },
   "tabAutocompleteOptions": {
     "maxPromptTokens": 2048,

@@ -75,18 +75,6 @@
           "type": "status"
         },
         {
-          "background": "#689f63",
-          "foreground": "#ffffff",
-          "invert_powerline": true,
-          "leading_diamond": "<background,parentBackground>\ue0b2",
-          "properties": {
-            "fetch_version": true
-          },
-          "style": "diamond",
-          "template": " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} \ue718 ",
-          "type": "node"
-        },
-        {
           "background": "#00acd7",
           "foreground": "#111111",
           "invert_powerline": true,

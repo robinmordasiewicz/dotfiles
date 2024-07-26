@@ -170,15 +170,6 @@
           "type": "az"
         },
         {
-          "background": "#0D71CE",
-          "foreground": "#d3d7cf",
-          "leading_diamond": "<background,parentBackground>\ue0b2",
-          "style": "diamond",
-          "template": "<foreground,background> {{ if .SSHSession }}<#FFD209,background>\u26a1{{ end }}<foreground,background>{{ .HostName }} <foreground,background>",
-          "trailing_diamond": "<#0D71CE,transparent>\ue0b0<#d3d7cf,transparent>",
-          "type": "session"
-        },
-        {
           "background": "transparent",
           "foreground": "#d3d7cf",
           "style": "powerline",
